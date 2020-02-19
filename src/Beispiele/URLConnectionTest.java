@@ -14,7 +14,7 @@ public class URLConnectionTest {
 
             System.out.println("Typ des URLConnection-Objekts:");
             System.out.println(connection.getClass());
-            // Verbindung herstellen
+            // Verbindung herstellend
             connection.connect();
             // Auslesen der HTTP-Version
             System.out.print("\nVersion des HTTP-Protokolls: ");
