@@ -34,7 +34,7 @@ public class Aufgabe2Client {
                 System.out.println("Zahl1: ");
                 int zahl1 = scanner.nextInt();
             }else if (anzahlZahlen == 2){
-                
+
             }
             System.out.println("Zahl1: ");
             int zahl1 = scanner.nextInt();
