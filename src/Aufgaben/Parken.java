@@ -1,8 +1,10 @@
 package Aufgaben;
 
 public class Parken {
-    Parkhaus parkhaus = new Parkhaus();
-    for (int i = 0; i <= 10; i++){
-
+    public static void main(String[] args) {
+        Parkhaus parkhaus = new Parkhaus(10);
+        for(int i = 0; i < 10; i++){
+            new Auto(i, parkhaus);
+        }
     }
 }

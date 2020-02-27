@@ -1,8 +1,8 @@
 package Aufgaben;
 
 public class Auto extends Thread {
-    int nr;
-    Parkhaus parkhaus;
+    public int nr;
+    public Parkhaus parkhaus;
 
     public Auto(int nr, Parkhaus parkhaus) {
         this.nr = nr;
@@ -13,9 +13,13 @@ public class Auto extends Thread {
     public void run() {
         try {
             sleep(100);
-            parkhaus.rein(this);
+            synchronized (parkhaus) {
+                parkhaus.rein(this);
+            }
             sleep(100);
-            parkhaus.raus(this);
+            synchronized (parkhaus) {
+                parkhaus.raus(this);
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

@@ -22,9 +22,8 @@ public class Parkhaus {
         //Wenn Platz frei ist einparken
         if (freierplatz != -1){
             plaetze[freierplatz] = auto;
+            System.out.println("Auto " + auto.nr + " steht nun auf Platz " + freierplatz);
         }
-
-
     }
 
     public void raus(Auto auto) {
@@ -39,7 +38,7 @@ public class Parkhaus {
         
         //Auto ausparken
         plaetze[standplatz] = null;
-
+        System.out.println("Auto " + auto.nr + " ausgeparkt");
     }
 }
 
