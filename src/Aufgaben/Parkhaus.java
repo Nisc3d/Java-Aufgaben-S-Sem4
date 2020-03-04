@@ -7,9 +7,10 @@ public class Parkhaus {
         plaetze = new Auto[anzahlplaetze];
     }
 
-    public void rein(Auto auto) {
+    public synchronized boolean rein(Auto auto) {
         int i = 0;
         int freierplatz = -1;
+        boolean eingeparkt = false;
         
         //Prüfen ob Platz frei ist
         while (i < plaetze.length) {
@@ -23,10 +24,12 @@ public class Parkhaus {
         if (freierplatz != -1){
             plaetze[freierplatz] = auto;
             System.out.println("Auto " + auto.nr + " steht nun auf Platz " + freierplatz);
+            eingeparkt = true;
         }
+        return eingeparkt;
     }
 
-    public void raus(Auto auto) {
+    public synchronized void raus(Auto auto) {
         int i = 0;
         int standplatz = 100;
         //Schauen an welchem Platz das Auto steht
@@ -34,11 +37,12 @@ public class Parkhaus {
             if (auto.equals(plaetze[i])){
                 standplatz = i;
             }
+            i += 1;
         }
         
         //Auto ausparken
         plaetze[standplatz] = null;
-        System.out.println("Auto " + auto.nr + " ausgeparkt");
+        System.out.println("Auto " + auto.nr + " von Platz " + standplatz + " ausgeparkt");
     }
 }
 
